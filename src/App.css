@@ -476,3 +476,27 @@
 .bor {
   border-bottom: 1px solid white;
 }
+
+.nextBtns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.nextBtns button {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid black;
+  font-size: 17px;
+  border-radius: 10px;
+}
+
+.nextBtns button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}

@@ -67,6 +67,10 @@ export default function Shop() {
                         </div>
                     </div>
                 ))}
+            </div>
+            <div className="nextBtns">
+                <button>Next</button>
+                <button>Previous</button>
             </div>  
         </div>
     )
