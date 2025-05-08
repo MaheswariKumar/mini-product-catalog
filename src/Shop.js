@@ -1,15 +1,32 @@
 import { useEffect, useState, useContext, useRef } from "react"
 import { MyContext } from "./MyContext";
+import Footer from "./Footer";
 
 export default function Shop() {
     const {data} = useContext(MyContext);
     const [openDropDown, setOpenDropDown] = useState(false);
     const [type, setType] = useState("eyeliner");
+    const [startCount, setStartCount] = useState(0);
+    const [visibleCount, setVisibleCount] = useState(8);
 
     const handleDropDown = (e) => {
         e.stopPropagation();
         setOpenDropDown(!openDropDown);
     }
+
+    const handleNextBtn = () => {
+        setStartCount(visibleCount);
+        setVisibleCount((prev)=>prev+8);
+    }
+
+    const handlePrevBtn = () => {
+        setStartCount((prev)=>prev-8);
+        setVisibleCount((prev)=>prev-8);
+    }
+
+    const filteredData = Array.isArray(data) ? data.filter((item)=>item.product_type===type) : [];
+
+    const hasData = visibleCount < filteredData.length;
 
     useEffect(()=> {
         const handleDownRef = () => {
@@ -55,7 +72,7 @@ export default function Shop() {
                         <nav onClick={()=> setType("mascara")}>Mascara</nav>
             </div> : null }
             <div className='all'>
-                {Array.isArray(data) && data.filter((item)=>item.product_type === type).slice(0, 8).map((prod) => (
+                {Array.isArray(data) && data.filter((item)=>item.product_type === type).slice(startCount, visibleCount).map((prod) => (
                     <div className='proddet'>
                         <div className='imgcover'>
                             <img className='prodImg' src={prod.api_featured_image}></img>
@@ -69,9 +86,10 @@ export default function Shop() {
                 ))}
             </div>
             <div className="nextBtns">
-                <button>Next</button>
-                <button>Previous</button>
-            </div>  
+                {startCount>0 && <button onClick={handlePrevBtn}>Previous</button>}
+                {hasData && <button onClick={handleNextBtn}>Next</button>}
+            </div> 
+            <Footer /> 
         </div>
     )
 }

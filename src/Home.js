@@ -1,9 +1,10 @@
 import { MyContext } from './MyContext';
 import { useContext, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './App.css';
 
 export default function Home() {
-    const {data, loading, visibleCount} = useContext(MyContext);
+    const {data, loading, visibleCount, setLoading} = useContext(MyContext);
     const scrollTargetRef = useRef(null);
 
     const handleScrollDown = () => {
@@ -34,7 +35,7 @@ export default function Home() {
             </div>
             <div className='all' ref={scrollTargetRef}>
                 {Array.isArray(data) && data.slice(0, visibleCount).map((prod) => (
-                    <div className='proddet'>
+                    <Link className="custom-link" to={`/product/${prod.name}/${prod.id}`}><div onClick={()=> setLoading(false)} className='proddet'>
                         <div className='imgcover'>
                             <img className='prodImg' src={prod.api_featured_image}></img>
                         </div>
@@ -43,7 +44,7 @@ export default function Home() {
                         <div className='prodBrand'>
                             <nav className='brand'>{prod.brand}</nav>
                         </div>
-                    </div>
+                    </div></Link>
                 ))}
             </div>  
         </div>

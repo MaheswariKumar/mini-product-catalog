@@ -6,6 +6,9 @@ import Home from "./Home";
 import Loading from "./Loading";
 import AboutUs from "./AboutUs";
 import Shop from "./Shop";
+import Review from "./Review";
+import Contact from "./Contact";
+import ProductDetails from "./ProductDetails";
 
 function App() {
   const [data, setData] = useState([]);
@@ -38,7 +41,7 @@ function App() {
 
 
   return (
-    <MyContext.Provider value={{ data, loading, visibleCount}}>
+    <MyContext.Provider value={{ data, loading, visibleCount, setLoading}}>
       <BrowserRouter>
         <div className="App">
           <Nav />
@@ -49,6 +52,9 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/aboutUs" element={<AboutUs />} />
               <Route path="/shop" element={<Shop />} />
+              <Route path="/review" element={<Review />} />
+              <Route path="/contactUs" element={<Contact />} />
+              <Route path="/product/:name/:id" element={<ProductDetails />} />
             </Routes>
           )}
         </div>
