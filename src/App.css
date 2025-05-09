@@ -99,12 +99,14 @@ ul {
   top: 70px;
   z-index: 1;
   width: 1170px;
-  background-color: #aaa7a5;
-  box-shadow: rgba(145, 128, 128, 0.24) 0px 3px 8px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background: rgba(255, 255, 255, 0.15); 
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(10px);
 }
 
 li {
@@ -154,6 +156,28 @@ li {
   width: 20px;
   height: 20px;
   color: grey;
+}
+
+@media only screen and (max-width:600px) {
+  .nav {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .sec {
+    gap: 30px;
+    justify-content: space-between;
+  }
+
+  .cancel {
+    top: 90px;
+  }
+
+  ul {
+  left: 0px;
+  top: 140px;
+  width: 585px;
+  }
 }
 
 /* Home */
