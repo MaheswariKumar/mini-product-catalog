@@ -21,8 +21,8 @@ export default function ProductDetails() {
           }
         };
       
-        getObj();
-      }, []);
+        if (id) getObj();
+      }, [id]);
 
       const handleMinusbtn = () => {
         if (cartCount>0) {
