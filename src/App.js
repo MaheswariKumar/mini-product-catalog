@@ -19,7 +19,7 @@ function App() {
   const [suggestions, setSuggestions] = useState([]);
 
   async function getData() {
-    const rs = await fetch("http://makeup-api.herokuapp.com/api/v1/products.json");
+    const rs = await fetch("https://makeup-api.herokuapp.com/api/v1/products.json");
     const data = await rs.json();
     console.log(data);
     console.log("Is array:", Array.isArray(data));

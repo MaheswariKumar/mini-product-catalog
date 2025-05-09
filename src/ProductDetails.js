@@ -11,7 +11,7 @@ export default function ProductDetails() {
     useEffect(() => {
         const getObj = async () => {
           try {
-            const res = await fetch(`http://makeup-api.herokuapp.com/api/v1/products/${id}.json`);
+            const res = await fetch(`https://makeup-api.herokuapp.com/api/v1/products/${id}.json`);
             const data = await res.json();
             setObj(data);
           } catch (error) {

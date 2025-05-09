@@ -15,7 +15,7 @@ export default function Nav() {
             return;
         }
         try {
-            const res = await fetch(`http://makeup-api.herokuapp.com/api/v1/products.json?product_type=${term}`);
+            const res = await fetch(`https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${term}`);
             const data = await res.json();
 
             setSuggestions(data.slice(0, 5));
