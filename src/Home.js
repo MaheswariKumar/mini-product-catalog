@@ -26,7 +26,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div>
-                        <img className="img" src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29zbWV0aWN8ZW58MHx8MHx8fDA%3D"></img>
+                        <img alt="ProdImage" className="img" src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29zbWV0aWN8ZW58MHx8MHx8fDA%3D"></img>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@ export default function Home() {
                 {Array.isArray(data) && data.slice(0, visibleCount).map((prod) => (
                     <Link className="custom-link" to={`/product/${prod.name}/${prod.id}`}><div onClick={()=> setLoading(false)} className='proddet'>
                         <div className='imgcover'>
-                            <img className='prodImg' src={prod.api_featured_image}></img>
+                            <img alt="ProdImage" className='prodImg' src={prod.api_featured_image}></img>
                         </div>
                         <nav className='prodName'>{prod.name}</nav>
                         <nav className='prodPrice'>$ {prod.price} USD</nav>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Footer from "./Footer";
 
 export default function AboutUs() {
@@ -45,7 +45,7 @@ export default function AboutUs() {
             </div>
             <div className="faq">
                 <div>
-                    <img className="fqImg" src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNvc21ldGljfGVufDB8fDB8fHww"></img>
+                    <img alt="ProdImage" className="fqImg" src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNvc21ldGljfGVufDB8fDB8fHww"></img>
                 </div>
                 <div className="ours">
                     <div className="qus">

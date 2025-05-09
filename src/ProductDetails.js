@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { data, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { MyContext } from "./MyContext";
 
 
@@ -35,7 +35,7 @@ export default function ProductDetails() {
             {obj && (<><nav className="productName">{obj.name}</nav>
             <div className="prodDe">
                 <div className="imgQun">
-                    <img className="ImgProd" src={obj.api_featured_image}></img>
+                    <img alt="ProdImage" className="ImgProd" src={obj.api_featured_image}></img>
                     <div className="cartBtn">
                         <button onClick={handleMinusbtn}>-</button>
                         <nav>{cartCount}</nav>

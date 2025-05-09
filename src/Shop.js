@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext, useRef } from "react"
+import { useEffect, useState, useContext } from "react"
 import { MyContext } from "./MyContext";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
@@ -76,7 +76,7 @@ export default function Shop() {
                 {Array.isArray(data) && data.filter((item)=>item.product_type === type).slice(startCount, visibleCount).map((prod) => (
                     <Link className="custom-link" to={`/product/${prod.name}/${prod.id}`}><div onClick={()=> setLoading(false)} className='proddet'>
                         <div className='imgcover'>
-                            <img className='prodImg' src={prod.api_featured_image}></img>
+                            <img alt="ProdImage" className='prodImg' src={prod.api_featured_image}></img>
                         </div>
                         <nav className='prodName'>{prod.name}</nav>
                         <nav className='prodPrice'>$ {prod.price} USD</nav>
