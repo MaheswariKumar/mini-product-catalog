@@ -1,9 +1,10 @@
 import { useEffect, useState, useContext, useRef } from "react"
 import { MyContext } from "./MyContext";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 export default function Shop() {
-    const {data} = useContext(MyContext);
+    const {data, setLoading} = useContext(MyContext);
     const [openDropDown, setOpenDropDown] = useState(false);
     const [type, setType] = useState("eyeliner");
     const [startCount, setStartCount] = useState(0);
@@ -73,7 +74,7 @@ export default function Shop() {
             </div> : null }
             <div className='all'>
                 {Array.isArray(data) && data.filter((item)=>item.product_type === type).slice(startCount, visibleCount).map((prod) => (
-                    <div className='proddet'>
+                    <Link className="custom-link" to={`/product/${prod.name}/${prod.id}`}><div onClick={()=> setLoading(false)} className='proddet'>
                         <div className='imgcover'>
                             <img className='prodImg' src={prod.api_featured_image}></img>
                         </div>
@@ -82,7 +83,7 @@ export default function Shop() {
                         <div className='prodBrand'>
                             <nav className='brand'>{prod.brand}</nav>
                         </div>
-                    </div>
+                    </div></Link>
                 ))}
             </div>
             <div className="nextBtns">

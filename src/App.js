@@ -9,11 +9,14 @@ import Shop from "./Shop";
 import Review from "./Review";
 import Contact from "./Contact";
 import ProductDetails from "./ProductDetails";
+import ScrollToTop from "./ScrollToTop";
 
 function App() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [visibleCount, setVisibleCount] = useState(50);
+  const [cartCount, setCartCount] = useState(0);
+  const [suggestions, setSuggestions] = useState([]);
 
   async function getData() {
     const rs = await fetch("http://makeup-api.herokuapp.com/api/v1/products.json");
@@ -41,8 +44,9 @@ function App() {
 
 
   return (
-    <MyContext.Provider value={{ data, loading, visibleCount, setLoading}}>
+    <MyContext.Provider value={{ data, loading, visibleCount, setLoading, cartCount, setCartCount, suggestions, setSuggestions}}>
       <BrowserRouter>
+      <ScrollToTop />
         <div className="App">
           <Nav />
           {!loading ? (

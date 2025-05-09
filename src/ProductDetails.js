@@ -4,32 +4,42 @@ import { MyContext } from "./MyContext";
 
 
 export default function ProductDetails() {
-    const {setLoading} = useContext(MyContext);
+    const {setLoading, cartCount, setCartCount} = useContext(MyContext);
     const {id} = useParams();
     const [obj, setObj] = useState(null);
 
-    async function getObj() {
-        const rs = await fetch(`http://makeup-api.herokuapp.com/api/v1/products/${id}.json`);
-        const data = await rs.json();
-        console.log(data);
-        setObj(data);
-    }
-
-    useEffect(()=> {
+    useEffect(() => {
+        const getObj = async () => {
+          try {
+            const res = await fetch(`http://makeup-api.herokuapp.com/api/v1/products/${id}.json`);
+            const data = await res.json();
+            setObj(data);
+          } catch (error) {
+            console.error("Failed to fetch product:", error);
+          } finally {
+            setLoading(true);
+          }
+        };
+      
         getObj();
-        setLoading(true);
-    },[])
+      }, []);
+
+      const handleMinusbtn = () => {
+        if (cartCount>0) {
+            setCartCount((cnt)=>cnt-1);
+        }
+      }
 
     return (
         <div>
-            {obj.name && <nav className="productName">{obj.name}</nav>}
+            {obj && (<><nav className="productName">{obj.name}</nav>
             <div className="prodDe">
                 <div className="imgQun">
                     <img className="ImgProd" src={obj.api_featured_image}></img>
                     <div className="cartBtn">
-                        <button>-</button>
-                        <nav>5</nav>
-                        <button>+</button>
+                        <button onClick={handleMinusbtn}>-</button>
+                        <nav>{cartCount}</nav>
+                        <button onClick={()=> setCartCount((cnt)=> cnt+1)}>+</button>
                     </div>
                 </div>
                 <div className="itemDe">
@@ -63,6 +73,7 @@ export default function ProductDetails() {
                     </div>
                 </div>
             </div>
+            </>) }
         </div>
     )
 }

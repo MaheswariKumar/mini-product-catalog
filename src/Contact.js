@@ -44,15 +44,15 @@ export default function Contact() {
                 <div className="form">
                     <div className="input">
                         <label>Name:</label>
-                        <input type="text" required />
+                        <input className="inp" type="text" required />
                     </div>
                     <div className="input">
                         <label>Phone:</label>
-                        <input type="phone" required />
+                        <input className="inp" type="phone" required />
                     </div>
                     <div className="input">
                         <label>Email:</label>
-                        <input type="email" required />
+                        <input className="inp" type="email" required />
                     </div>
                     <div className="input">
                         <label>Message:</label>
