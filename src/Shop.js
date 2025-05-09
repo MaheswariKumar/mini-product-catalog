@@ -74,7 +74,7 @@ export default function Shop() {
             </div> : null }
             <div className='all'>
                 {Array.isArray(data) && data.filter((item)=>item.product_type === type).slice(startCount, visibleCount).map((prod) => (
-                    <Link className="custom-link" to={`/product/${prod.name}/${prod.id}`}><div onClick={()=> setLoading(false)} className='proddet'>
+                    <Link className="custom-link" to={`/product/${prod.name}/${prod.id}`} onClick={()=> setLoading(false)}><div className='proddet'>
                         <div className='imgcover'>
                             <img alt="ProdImage" className='prodImg' src={prod.api_featured_image}></img>
                         </div>

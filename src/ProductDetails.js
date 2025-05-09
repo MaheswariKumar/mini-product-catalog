@@ -5,7 +5,7 @@ import { MyContext } from "./MyContext";
 
 export default function ProductDetails() {
     const {setLoading, cartCount, setCartCount} = useContext(MyContext);
-    const {id} = useParams();
+    const {id, name} = useParams();
     const [obj, setObj] = useState(null);
 
     useEffect(() => {
@@ -20,8 +20,8 @@ export default function ProductDetails() {
             setLoading(true);
           }
         };
-      
-        if (id) getObj();
+        console.log(id);
+        getObj();
       }, [id]);
 
       const handleMinusbtn = () => {

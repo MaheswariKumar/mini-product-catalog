@@ -35,7 +35,7 @@ export default function Home() {
             </div>
             <div className='all' ref={scrollTargetRef}>
                 {Array.isArray(data) && data.slice(0, visibleCount).map((prod) => (
-                    <Link className="custom-link" to={`/product/${prod.name}/${prod.id}`}><div onClick={()=> setLoading(false)} className='proddet'>
+                    <Link className="custom-link" to={`/product/${prod.name}/${prod.id}`} onClick={()=> setLoading(false)}><div className='proddet'>
                         <div className='imgcover'>
                             <img alt="ProdImage" className='prodImg' src={prod.api_featured_image}></img>
                         </div>
